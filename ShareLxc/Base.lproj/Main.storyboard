@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="JHY-ch-JZp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--这里应该有标题但是忘了写-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LQ9-cj-pvj">
+                                <rect key="frame" x="0.0" y="74" width="375" height="29"/>
+                                <segments>
+                                    <segment title="微信"/>
+                                    <segment title="朋友圈"/>
+                                    <segment title="QQ"/>
+                                    <segment title="QQ空间"/>
+                                    <segment title="微博"/>
+                                    <segment title="短信"/>
+                                    <segment title="邮箱"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPq-QK-8Vt">
+                                <rect key="frame" x="0.0" y="318" width="187.5" height="30"/>
+                                <state key="normal" title="分享"/>
+                                <connections>
+                                    <action selector="shareButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rPh-zg-aCp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sq-O7-Rju">
+                                <rect key="frame" x="187.5" y="318" width="187.5" height="30"/>
+                                <state key="normal" title="登录"/>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nmG-vi-o44"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjh-kS-Azz">
+                                <rect key="frame" x="0.0" y="358" width="375" height="30"/>
+                                <state key="normal" title="登出"/>
+                                <connections>
+                                    <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dkl-xN-ZvL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aE3-46-FKp">
+                                <rect key="frame" x="0.0" y="393" width="375" height="30"/>
+                                <state key="normal" title="全部登出"/>
+                                <connections>
+                                    <action selector="logoutAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2q8-Ch-Wf5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5sq-O7-Rju" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1B0-cZ-cfR"/>
+                            <constraint firstItem="5sq-O7-Rju" firstAttribute="leading" secondItem="DPq-QK-8Vt" secondAttribute="trailing" id="3u1-Fo-8MA"/>
+                            <constraint firstItem="aE3-46-FKp" firstAttribute="top" secondItem="kjh-kS-Azz" secondAttribute="bottom" constant="5" id="BtR-z0-Xu8"/>
+                            <constraint firstItem="kjh-kS-Azz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="GIe-2I-8rw"/>
+                            <constraint firstItem="LQ9-cj-pvj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pka-hS-Ewy"/>
+                            <constraint firstItem="5sq-O7-Rju" firstAttribute="centerY" secondItem="DPq-QK-8Vt" secondAttribute="centerY" id="RQH-Rn-dNn"/>
+                            <constraint firstAttribute="trailing" secondItem="LQ9-cj-pvj" secondAttribute="trailing" id="VBK-6A-X12"/>
+                            <constraint firstItem="kjh-kS-Azz" firstAttribute="top" secondItem="5sq-O7-Rju" secondAttribute="bottom" constant="10" id="W5x-14-zUC"/>
+                            <constraint firstItem="aE3-46-FKp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="WcY-Tp-qDs"/>
+                            <constraint firstAttribute="trailing" secondItem="kjh-kS-Azz" secondAttribute="trailing" id="WxV-8X-TtP"/>
+                            <constraint firstItem="DPq-QK-8Vt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bHV-hw-Wvw"/>
+                            <constraint firstItem="LQ9-cj-pvj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="bVr-kh-T5Z"/>
+                            <constraint firstItem="5sq-O7-Rju" firstAttribute="width" secondItem="DPq-QK-8Vt" secondAttribute="width" id="bgT-6c-dwF"/>
+                            <constraint firstAttribute="trailing" secondItem="5sq-O7-Rju" secondAttribute="trailing" id="cDi-9a-cK8"/>
+                            <constraint firstItem="5sq-O7-Rju" firstAttribute="height" secondItem="DPq-QK-8Vt" secondAttribute="height" id="umg-vi-gn5"/>
+                            <constraint firstAttribute="trailing" secondItem="aE3-46-FKp" secondAttribute="trailing" id="weU-TM-aAH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="这里应该有标题但是忘了写" id="CUw-vh-8e3"/>
+                    <connections>
+                        <outlet property="allLogoutButton" destination="aE3-46-FKp" id="LBw-Qr-oyj"/>
+                        <outlet property="loginButton" destination="5sq-O7-Rju" id="BgC-px-N3o"/>
+                        <outlet property="logoutButton" destination="kjh-kS-Azz" id="sfY-3p-B7W"/>
+                        <outlet property="segment" destination="LQ9-cj-pvj" id="gU4-Om-c3P"/>
+                        <outlet property="shareButton" destination="DPq-QK-8Vt" id="1KG-GD-nYO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="37.331334332833585"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0ie-fS-Vah">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JHY-ch-JZp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fvw-e8-U98">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1LE-KY-OBb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T9c-dg-ns0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+        </scene>
+    </scenes>
+</document>
