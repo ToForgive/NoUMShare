@@ -20,9 +20,7 @@
 
 #pragma mark ShareVO
 @interface ShareVO ()
-{
-    UIImage * shareImage;
-}
+
 @end
 
 @implementation ShareVO
@@ -44,8 +42,44 @@
 {
     if ([self.image isKindOfClass:[NSString class]]) {
         self.image = [self getImageFromURL:self.image];
+    }else if ([self.image isKindOfClass:[UIImage class]]) {
+        self.image = UIImageJPEGRepresentation(self.image, 1.0);
     }
     return YES;
+}
+
+-(void)compressImage
+{
+    CGFloat max = 800;
+    UIImage* image = [UIImage imageWithData:self.image];
+    CGFloat width  = image.size.width;
+    CGFloat height = image.size.height;
+    CGSize size;
+    
+    if (width > height) {
+        if (width <= max) {
+            return;
+        }else
+        {
+            float hw = height/width;
+            size = CGSizeMake(max, max*hw);
+        }
+    }else
+    {
+        if (height <= max) {
+            return;
+        }else
+        {
+            float wh = width/height;
+            size = CGSizeMake(wh * max, max);
+        }
+    }
+    
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0,0, size.width, size.height)];
+    UIImage *newImage =UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.image = UIImageJPEGRepresentation(newImage,1);
 }
 
 -(void)shareComplate:(ShareResultCallBack)onComplete
@@ -55,7 +89,7 @@
 
 //获取网络图片
 -(NSData *) getImageFromURL:(NSString *)fileURL {
-    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    NSData* data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
     return data;
 }
 
