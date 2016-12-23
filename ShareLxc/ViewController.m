@@ -60,7 +60,7 @@
             NSLog(@"%@",message);
         }else
         {
-            NSLog(@"已退出  %ld",self.segment.selectedSegmentIndex);
+            NSLog(@"已退出  %ld",(long)self.segment.selectedSegmentIndex);
         }
     }];
 }

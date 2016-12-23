@@ -6,9 +6,9 @@
 //  Copyright © 2016年 梁新昌. All rights reserved.
 //
 
-#import "ShareNetWork.h"
+#import "NetAndUDManager.h"
 
-@implementation ShareNetWork
+@implementation NetAndUDManager
 
 #pragma mark UD存储方法
 +(void)saveObject:(NSString *)obj withKey:(NSString *)key

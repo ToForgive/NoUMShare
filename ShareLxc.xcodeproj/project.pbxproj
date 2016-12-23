@@ -10,7 +10,7 @@
 		94F6E8AF1E07CCD1009789E7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F6E8AE1E07CCD1009789E7 /* MessageUI.framework */; };
 		94F6E9461E09275E009789E7 /* ManagerVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F6E9411E09275E009789E7 /* ManagerVO.m */; };
 		94F6E9471E09275E009789E7 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F6E9431E09275E009789E7 /* ShareManager.m */; };
-		94F6E9481E09275E009789E7 /* ShareNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F6E9451E09275E009789E7 /* ShareNetWork.m */; };
+		94F6E9481E09275E009789E7 /* NetAndUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F6E9451E09275E009789E7 /* NetAndUDManager.m */; };
 		94F6E9601E092769009789E7 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F6E94B1E092769009789E7 /* TencentOpenAPI.framework */; };
 		94F6E9611E092769009789E7 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94F6E94C1E092769009789E7 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		94F6E9621E092769009789E7 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F6E94E1E092769009789E7 /* 3.png */; };
@@ -47,8 +47,8 @@
 		94F6E9411E09275E009789E7 /* ManagerVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerVO.m; sourceTree = "<group>"; };
 		94F6E9421E09275E009789E7 /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		94F6E9431E09275E009789E7 /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
-		94F6E9441E09275E009789E7 /* ShareNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareNetWork.h; sourceTree = "<group>"; };
-		94F6E9451E09275E009789E7 /* ShareNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareNetWork.m; sourceTree = "<group>"; };
+		94F6E9441E09275E009789E7 /* NetAndUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetAndUDManager.h; sourceTree = "<group>"; };
+		94F6E9451E09275E009789E7 /* NetAndUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetAndUDManager.m; sourceTree = "<group>"; };
 		94F6E94B1E092769009789E7 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
 		94F6E94C1E092769009789E7 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		94F6E94E1E092769009789E7 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 				94F6E9411E09275E009789E7 /* ManagerVO.m */,
 				94F6E9421E09275E009789E7 /* ShareManager.h */,
 				94F6E9431E09275E009789E7 /* ShareManager.m */,
-				94F6E9441E09275E009789E7 /* ShareNetWork.h */,
-				94F6E9451E09275E009789E7 /* ShareNetWork.m */,
+				94F6E9441E09275E009789E7 /* NetAndUDManager.h */,
+				94F6E9451E09275E009789E7 /* NetAndUDManager.m */,
 			);
 			path = ShareManager;
 			sourceTree = SOURCE_ROOT;
@@ -336,7 +336,7 @@
 				ACCF84BD1E077EFB00AAEDF4 /* ViewController.m in Sources */,
 				ACCF84BA1E077EFB00AAEDF4 /* AppDelegate.m in Sources */,
 				94F6E9461E09275E009789E7 /* ManagerVO.m in Sources */,
-				94F6E9481E09275E009789E7 /* ShareNetWork.m in Sources */,
+				94F6E9481E09275E009789E7 /* NetAndUDManager.m in Sources */,
 				ACCF84B71E077EFB00AAEDF4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,8 +471,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/ShareLxc/libWeiboSDK",
-					"$(PROJECT_DIR)/ShareLxc/OpenSDK1.7.5",
 					"$(PROJECT_DIR)/ShareLxc/SDKs/weiboSDK",
 					"$(PROJECT_DIR)/ShareLxc/SDKs/weixinSDK",
 				);
@@ -501,8 +499,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/ShareLxc/libWeiboSDK",
-					"$(PROJECT_DIR)/ShareLxc/OpenSDK1.7.5",
 					"$(PROJECT_DIR)/ShareLxc/SDKs/weiboSDK",
 					"$(PROJECT_DIR)/ShareLxc/SDKs/weixinSDK",
 				);

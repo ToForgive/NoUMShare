@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ShareNetWork : NSObject
+@interface NetAndUDManager : NSObject
 
 +(void)saveObject:(NSString *)obj withKey:(NSString *)key;
 +(NSString *)getObjectWithKey:(NSString *)key;

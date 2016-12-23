@@ -7,7 +7,7 @@
 //
 
 #import "ShareManager.h"
-#import "ShareNetWork.h"
+#import "NetAndUDManager.h"
 #import <MessageUI/MessageUI.h>
 #import <TencentOpenAPI/TencentMessageObject.h>
 #import <TencentOpenAPI/TencentApiInterface.h>
@@ -162,7 +162,7 @@
     return YES;
 }
 -(BOOL)logoutWithWeibo{
-    NSString* weiboToken = [ShareNetWork getObjectWithKey:Weibo_Token];
+    NSString* weiboToken = [NetAndUDManager getObjectWithKey:Weibo_Token];
     if (weiboToken) {
         [WeiboSDK logOutWithToken:Weibo_Token delegate:self withTag:nil];
     }
@@ -189,7 +189,7 @@
 }
 
 -(BOOL)shareWith:(ShareVO *)share{
-    BOOL success = share;
+    BOOL success = share == nil;
     self.callBack = share.callBack;
     self.rootVC = share.rootVC;
     [share prepareToShare];
@@ -222,7 +222,7 @@
 
 //微信分享
 -(BOOL)shareToWechat:(ShareVO *)share{
-    BOOL success = share;
+    BOOL success = share == nil;
     _scene = WXSceneSession;
     if (share.link) {
         [self sendLinkContent:share];
@@ -237,7 +237,7 @@
 
 //朋友圈分享
 -(BOOL)shareToWechatCircle:(ShareVO *)share{
-    BOOL success = share;
+    BOOL success = share == nil;
     _scene = WXSceneTimeline;
     if (share.link) {
         [self sendLinkContent:share];
@@ -252,7 +252,7 @@
 
 //QQ分享
 -(BOOL)shareToQQ:(ShareVO *)share{
-    BOOL success = share;
+    BOOL success = share == nil;
     if (share.link) {
         [self sendNewsMessageWithLocalImage:share];
     } else if (share.image) {
@@ -265,7 +265,7 @@
 
 //QQ空间分享
 -(BOOL)shareToQzone:(ShareVO *)share{
-    BOOL success = share;
+    BOOL success = share == nil;
     if (share.link) {
         [self sendNewsMessageWithLocalImage:share];
     } else {
@@ -276,7 +276,7 @@
 
 //微博分享
 -(BOOL)shareToWeibo:(ShareVO *)share{
-    BOOL success = share;
+    BOOL success = share == nil;
     
     WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
     authRequest.redirectURI = WeiBo_RedirectURI;
@@ -292,7 +292,7 @@
 
 //短信分享
 -(BOOL)shareToMessage:(ShareVO *)share{
-    BOOL success = share;
+    BOOL success = share == nil;
     
     Class messageClass = (NSClassFromString(@"MFMessageComposeViewController"));
     
@@ -319,7 +319,7 @@
 
 //邮箱分享
 -(BOOL)shareToEmail:(ShareVO *)share{
-    BOOL success = share;
+    BOOL success = share == nil;
     
     Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
     
@@ -388,7 +388,7 @@
                 }else
                 {
                     [authorize fillWithPlatform:weibo andUser:result];
-                    [ShareNetWork saveObject:authorize.accessToken withKey:Weibo_Token];
+                    [NetAndUDManager saveObject:authorize.accessToken withKey:Weibo_Token];
                     self.callBack(nil,authorize);
                 }
             }];
@@ -482,13 +482,13 @@
             }else
             {
                 SendAuthResp* authResp = (SendAuthResp *)resp;
-                [ShareNetWork getWith:[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",WeiXin_AppKey,WeiXin_Secret,authResp.code] completionHandler:^(NSDictionary *data, NSError *error) {
+                [NetAndUDManager getWith:[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",WeiXin_AppKey,WeiXin_Secret,authResp.code] completionHandler:^(NSDictionary *data, NSError *error) {
                     if (error) {
                         self.callBack(@"登录失败",nil);
                     }else
                     {
                         AuthorizeVO* authorize = [AuthorizeVO authorizeWithPlatform:wechat andData:data];
-                        [ShareNetWork getWith:[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",authorize.accessToken,authorize.openId] completionHandler:^(NSDictionary *data, NSError *error) {
+                        [NetAndUDManager getWith:[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",authorize.accessToken,authorize.openId] completionHandler:^(NSDictionary *data, NSError *error) {
                             if (error) {
                                 self.callBack(@"登录失败",nil);
                             }else
