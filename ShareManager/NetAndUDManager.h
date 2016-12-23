@@ -15,5 +15,6 @@
 +(void)removeObjectWithKey:(NSString *)key;
 
 +(void)getWith:(NSString *)urlString completionHandler:(void (^)(NSDictionary * data,NSError *error))completionHandler;
++(NSDictionary*)getObjectData:(id)obj;
 
 @end
