@@ -1,4 +1,6 @@
 # NoUMShare
+> **注** NetAndUDManager是我的通用工具，如果使用过我做的其他工具请先检查是否已经包含NetAndUDManager文件。
+> 
 > qq、微信、新浪微博分享、登录非友盟封装
 
 ##准备工作
